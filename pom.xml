@@ -139,7 +139,7 @@
             <plugin>
                 <groupId>com.akathist.maven.plugins.launch4j</groupId>
                 <artifactId>launch4j-maven-plugin</artifactId>
-                <version>2.7.0</version>
+                <version>0.1.0</version>
                 <executions>
                     <execution>
                         <id>l4j-gui</id>
@@ -149,7 +149,7 @@
                         </goals>
                         <configuration>
                             <headerType>gui</headerType>
-                            <outfile>${project.build.directory}/${project.artifactId}.exe</outfile>
+                            <outfile>${project.build.directory}/${project.artifactId}-${project.version}.exe</outfile>
                             <jar>${project.build.directory}/${project.artifactId}-${project.version}.jar</jar>
                             <icon>${basedir}/src/main/resources/iamd/cassetteplayer/ui/cassette.ico</icon>
                             <errTitle>${project.artifactId} Error</errTitle>
