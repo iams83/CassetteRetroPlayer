@@ -1,5 +1,5 @@
 cd ../IamdUI
 call mvn clean install
 
-cd ../GedcomReader
+cd ../CassetteRetroPlayer
 call mvn clean package
