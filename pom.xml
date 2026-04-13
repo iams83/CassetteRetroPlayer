@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>CassetteRetroPlayer</groupId>
+    <groupId>iamd</groupId>
     <artifactId>CassetteRetroPlayer</artifactId>
     <version>1.7.0</version>
     <packaging>jar</packaging>
@@ -15,9 +15,17 @@
 	<properties>
 	    <maven.compiler.source>21</maven.compiler.source>
 	    <maven.compiler.target>21</maven.compiler.target>
+        <mainClass>iamd.cassetteplayer.Main</mainClass>
     </properties>
 
     <dependencies>
+    
+        <dependency>
+            <groupId>iamd</groupId>
+            <artifactId>IamdUI</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
+        </dependency>
+        
         <!-- JSON library -->
         <dependency>
             <groupId>org.json</groupId>
@@ -110,7 +118,7 @@
                             <createDependencyReducedPom>false</createDependencyReducedPom>
                             <transformers>
                                 <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-                                    <mainClass>iamd.cassetteplayer.Main</mainClass>
+                                    <mainClass>${mainClass}</mainClass>
                                 </transformer>
                             </transformers>
                             <filters>
@@ -141,11 +149,12 @@
                         </goals>
                         <configuration>
                             <headerType>gui</headerType>
-                            <outfile>${project.build.directory}/CassetteRetroPlayer.exe</outfile>
+                            <outfile>${project.build.directory}/${project.artifactId}.exe</outfile>
                             <jar>${project.build.directory}/${project.artifactId}-${project.version}.jar</jar>
-                            <errTitle>CassetteRetroPlayer Error</errTitle>
+                            <icon>${basedir}/src/main/resources/iamd/cassetteplayer/ui/cassette.ico</icon>
+                            <errTitle>${project.artifactId} Error</errTitle>
                             <classPath>
-                                <mainClass>iamd.cassetteplayer.Main</mainClass>
+                                <mainClass>${mainClass}</mainClass>
                                 </classPath>
                             <jre>
                                 <minVersion>21</minVersion>
